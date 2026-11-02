@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Huynh Nguyen Ngoc Nhu · Business Analyst Portfolio</title>
+<meta name="description" content="Business Analyst portfolio of Huynh Nguyen Ngoc Nhu, Information Systems student at Saigon University: case studies, diagrams and a requirements writing sample.">
+<meta name="author" content="Huynh Nguyen Ngoc Nhu">
+<link rel="canonical" href="https://hnnnhu.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Huynh Nguyen Ngoc Nhu · Business Analyst Portfolio">
+<meta property="og:description" content="Business Analyst portfolio of Huynh Nguyen Ngoc Nhu, Information Systems student at Saigon University: case studies, diagrams and a requirements writing sample.">
+<meta property="og:url" content="https://hnnnhu.github.io/">
+<meta property="og:image" content="https://hnnnhu.github.io/photo.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: a quiet, single-column case-study document. Text at reading width, evidence (diagrams, screens) slightly wider. No decoration that a reviewer has to read past. */
+:root{
+  --bg:#ffffff; --fg:#1c2026; --muted:#5a6370; --line:#e3e6eb; --soft:#f5f7f9; --link:#1f4e8c;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14171c; --fg:#e7eaee; --muted:#a2abb7; --line:#2b313a; --soft:#1b1f26; --link:#8fb4ea; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14171c; --fg:#e7eaee; --muted:#a2abb7; --line:#2b313a; --soft:#1b1f26; --link:#8fb4ea; color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:18px;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.page{max-width:960px;margin:0 auto;padding-block:64px 80px}
+.text{max-width:700px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5vw,46px)}
+h2{font-size:clamp(26px,3.4vw,32px)}
+h3{font-size:21px}
+p{margin:0}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.muted{color:var(--muted)}
+.small{font-size:16px}
+
+header{display:flex;gap:28px;align-items:flex-start}
+header img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex-shrink:0;max-width:100%}
+header .who{display:flex;flex-direction:column;gap:6px;min-width:0}
+.summary{margin-top:28px;font-size:20px;line-height:1.6}
+.contact{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;font-size:16px}
+.contact button{font:inherit;color:var(--link);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+.rule{border:0;border-top:1px solid var(--line);margin:56px 0}
+.label{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.index{margin-top:20px;display:grid;gap:0}
+.index a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.index a:last-child{border-bottom:1px solid var(--line)}
+.index a:hover .t{color:var(--link)}
+.index .t{font-family:var(--serif);font-size:20px;font-weight:600}
+.index .r{color:var(--muted);font-size:16px;text-align:right}
+.index .d{grid-column:1/-1;color:var(--muted);font-size:16px}
+
+.case{display:flex;flex-direction:column;gap:28px}
+.case .meta{color:var(--muted);font-size:16px;margin-top:10px}
+.case section{display:flex;flex-direction:column;gap:10px}
+.case ul,.case ol{margin:0;padding-left:22px}
+.case li+li{margin-top:8px}
+dl.facts{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 20px;font-size:16px}
+dl.facts dt{color:var(--muted)}
+dl.facts dd{margin:0}
+
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+figure .frame{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--soft)}
+figure .frame.tall{max-height:560px;overflow-y:auto}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figure .frame.tall img{width:100%;max-width:640px;margin:0 auto}
+figcaption{font-size:15px;color:var(--muted);max-width:700px}
+
+.sample{border:1px solid var(--line);border-radius:6px;padding:24px 26px;background:var(--soft);max-width:700px;font-size:17px}
+.sample .k{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sample .gwt{display:grid;grid-template-columns:64px minmax(0,1fr);gap:6px 14px;margin-top:8px}
+.sample .gwt b{font-weight:600}
+
+.skills{display:grid;grid-template-columns:200px minmax(0,1fr);gap:10px 24px;font-size:17px;max-width:760px}
+.skills dt{color:var(--muted)}
+.skills dd{margin:0}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  header{flex-direction:column;gap:18px}
+  header img{width:80px;height:80px}
+  .summary{font-size:18px}
+  .index a{grid-template-columns:1fr}
+  .index .r{text-align:left}
+  .skills,dl.facts{grid-template-columns:1fr;gap:2px 0}
+  .skills dd,dl.facts dd{margin-bottom:10px}
+  .sample{padding:18px}
+}
+</style>
+
+
+</head>
+<body>
+<main class="page">
+  <header>
+    <img src="photo.jpg" alt="Portrait of Huynh Nguyen Ngoc Nhu">
+    <div class="who">
+      <h1>Huynh Nguyen Ngoc Nhu</h1>
+      <p class="muted">Business Analyst Intern candidate · Information Systems, Saigon University · Ho Chi Minh City</p>
+    </div>
+  </header>
+
+  <div class="text">
+    <p class="summary">I am a final-year Information Systems student who works at the point where business needs become software. In my projects I run requirement surveys, write specifications and business rules, model processes, and test the result against what was agreed.</p>
+    <div class="contact">
+      <a href="https://www.linkedin.com/in/huynh-nguyen-ngoc-nhu-71660b377/" target="_blank" rel="noopener">LinkedIn</a>
+      <span><span id="email">ngocnhu010904@gmail.com</span> · <button type="button" id="copy">Copy email</button></span>
+      <span class="muted" id="status" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="label">Selected work</div>
+  <nav class="index" aria-label="Case studies">
+    <a href="#aerogate"><span class="t">AeroGate: airline ticket sales management</span><span class="r">Business Analyst · 2026</span><span class="d">Requirements to working system for a ticket-distribution business.</span></a>
+    <a href="#textbook"><span class="t">Textbook Q&amp;A Assistant</span><span class="r">Front-end &amp; report · 2026</span><span class="d">An AI study tool that answers only from the textbook and cites the page.</span></a>
+    <a href="#more"><span class="t">ReadRest and InteractHub</span><span class="r">QA · Solo build · 2025</span><span class="d">Business rule validation, and specifying rules before building them.</span></a>
+  </nav>
+
+  <hr class="rule">
+
+  <article class="case" id="aerogate">
+    <div class="text">
+      <h2>AeroGate: airline ticket sales management</h2>
+      <p class="meta">Business Analyst and front-end · Team of 2 · 15 weeks, spring 2026 · Enterprise Information Systems course</p>
+    </div>
+
+    <section class="text">
+      <h3>The problem</h3>
+      <p>A business that distributes airline tickets ran sales, ticket stock, customers, staff and payroll by hand or across separate tools. Processing was slow, data was entered twice and errors were common, and managers had no single view of revenue.</p>
+    </section>
+
+    <section class="text">
+      <h3>My role</h3>
+      <p>I owned requirements and the front-end. My teammate owned the data flow diagrams, the database and the back-end API. We shared testing.</p>
+    </section>
+
+    <section class="text">
+      <h3>What I did</h3>
+      <ol>
+        <li><strong>Elicited and scoped requirements.</strong> I wrote and ran a 20-question survey covering both functional and non-functional needs. From the answers I set the scope: 17 needs in, and 3 explicitly out (airport and aircraft operations, delivery of physical tickets, and automatic validation of every manual entry).</li>
+        <li><strong>Specified 8 business modules.</strong> For each one, from ticket inventory to HR and payroll, I described its functions, rules and purpose. The rules that mattered most:
+          <ul>
+            <li>Tickets can never be sold beyond available stock; staff are warned when 5 or fewer remain.</li>
+            <li>A ticket can be cancelled only 24 hours or more before departure, and the seat returns to stock.</li>
+            <li>Booking follows 5 steps: flight, fare and class, passengers, payment, confirmation with a booking code and e-ticket.</li>
+            <li>Payroll is calculated from attendance (22 standard working days, late after 08:05), reviewed, then locked.</li>
+            <li>Every change to sensitive data is logged with the user, time and values before and after.</li>
+          </ul>
+        </li>
+        <li><strong>Modeled the business functions.</strong> I drew the business function diagram, breaking the system into 5 areas: system administration, HR, ticket inventory, sales, and reporting.</li>
+        <li><strong>Built and tested the interface.</strong> I designed and built 15 screens in React and Tailwind CSS, connected them to the API, tested the system and wrote the final report and user guide.</li>
+      </ol>
+    </section>
+
+    <figure>
+      <div class="frame tall"><img src="aerogate-bfd.jpg" alt="Business function diagram of the AeroGate system, splitting it into five areas with their sub-functions" loading="lazy"></div>
+      <figcaption>Business function diagram I drew for the system (labels in Vietnamese, as submitted). Five functional areas, each broken down to individual tasks. Scroll inside the frame to see the full diagram.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="frame"><img src="aerogate-search.jpg" alt="Flight search screen with route, date and seat class fields, airline filters, and a result card showing price and seats left" loading="lazy"></div>
+      <figcaption>Step 1 of the booking flow, which I built: search by route, date and seat class, filter by airline and price, and see seats left before choosing.</figcaption>
+    </figure>
+
+    <section class="text">
+      <h3>Result</h3>
+      <p>We delivered a working web system covering the in-scope modules, with role-based access for Admin, Manager and Staff and a full audit trail, plus a full project report and user guide.</p>
+    </section>
+
+    <section class="text">
+      <h3>Limits I documented</h3>
+      <p>Flight data is entered manually rather than pulled from airline distribution systems, the system is web-only, and tickets are delivered by email only. The proposed next steps were a live connection to a global distribution system and a mobile app.</p>
+    </section>
+  </article>
+
+  <hr class="rule">
+
+  <article class="case" id="textbook">
+    <div class="text">
+      <h2>Textbook Q&amp;A Assistant</h2>
+      <p class="meta">Front-end and technical report · Team project · Sep 2026 to present · Modern Programming Technologies course</p>
+    </div>
+
+    <section class="text">
+      <h3>The problem</h3>
+      <p>Students increasingly ask general AI chatbots about their lessons and get confident answers that may not match their textbook. They need answers they can check.</p>
+    </section>
+
+    <section class="text">
+      <h3>The product</h3>
+      <p>Students upload their textbooks and ask questions. The assistant answers only from those books and cites the page for every claim. The decisions that shaped it:</p>
+      <ul>
+        <li>When the book does not cover a question, the assistant says so instead of guessing.</li>
+        <li>Students can narrow a search by subject, grade, book series or page range. Choosing no source at all is rejected rather than searching everything.</li>
+        <li>Follow-up questions are rewritten using the last 3 turns, so "what about the opposite case?" still finds the right passage.</li>
+        <li>Each student's uploaded books are private to them.</li>
+      </ul>
+    </section>
+
+    <section class="text">
+      <h3>My role</h3>
+      <p>I built the learning interface: uploading books with progress tracking, choosing sources, streamed answers and citation cards that show the original page excerpt. I also wrote the technical report, including the project overview, the technology analysis and the end-to-end pipeline diagram.</p>
+    </section>
+  </article>
+
+  <hr class="rule">
+
+  <article class="case" id="more">
+    <div class="text"><h2>Other projects</h2></div>
+    <section class="text">
+      <h3>ReadRest: e-commerce bookstore</h3>
+      <p class="meta" style="margin-top:0">QA and business rule validation · Team of 5 · Dec 2025</p>
+      <p>I designed and ran test scenarios across the purchase flow (search, cart, checkout, payment, order tracking) and admin functions, checking each against its acceptance criteria. I found authorization gaps and edge-case failures such as expired coupons still applying and cart updates exceeding stock, and recommended consolidating role, stock and address data that different parts of the system each owned.</p>
+    </section>
+    <section class="text">
+      <h3>InteractHub: social media platform</h3>
+      <p class="meta" style="margin-top:0">Personal project · Solo · 2025</p>
+      <p>I wrote business rules for 8 feature areas before building anything, such as who can see a post at each privacy level and which events trigger a notification. Building them myself, with more than 100 API endpoints and 47 unit tests, showed me which details a developer needs from a specification and which ones are usually missing.</p>
+    </section>
+  </article>
+
+  <hr class="rule">
+
+  <section class="case" id="writing">
+    <div class="text">
+      <h2>Writing sample</h2>
+      <p class="muted" style="margin-top:10px">A user story with acceptance criteria, written from the AeroGate cancellation rule. Each criterion maps to one test case.</p>
+    </div>
+    <div class="sample">
+      <div class="k">User story</div>
+      <p style="margin-top:6px">As a ticketing staff member, I want to cancel a passenger's ticket, so that the seat can be sold again.</p>
+      <div class="k" style="margin-top:18px">Acceptance criteria</div>
+      <div class="gwt">
+        <b>Given</b><span>departure is more than 24 hours away</span>
+        <b>When</b><span>I confirm the cancellation</span>
+        <b>Then</b><span>the ticket status becomes Cancelled, the seat returns to available stock, and the action is recorded in the audit log</span>
+      </div>
+      <div class="gwt" style="margin-top:14px">
+        <b>Given</b><span>departure is 24 hours away or less</span>
+        <b>When</b><span>I try to cancel</span>
+        <b>Then</b><span>the cancellation is blocked and the reason is shown</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="case">
+    <div class="text"><h2>Skills</h2></div>
+    <dl class="skills">
+      <dt>Business analysis</dt><dd>Requirement elicitation, scope definition, user stories and acceptance criteria, software requirements specifications, impact analysis</dd>
+      <dt>Modeling</dt><dd>Business function diagrams, data flow diagrams, BPMN, UML use cases, entity relationship diagrams</dd>
+      <dt>Data and technical</dt><dd>SQL, Python (pandas), REST API fundamentals, generative AI and retrieval-augmented generation</dd>
+      <dt>Tools</dt><dd>Figma, Draw.io, Notion, Excel and Google Sheets, Microsoft Office</dd>
+    </dl>
+  </section>
+
+  <hr class="rule">
+
+  <section class="case">
+    <div class="text"><h2>Background</h2></div>
+    <dl class="skills">
+      <dt>Education</dt><dd>B.S. in Information Systems, Saigon University, 2022 to 2027 (expected)</dd>
+      <dt>Experience</dt><dd>Freelance math tutor for secondary and high school students, 2024 to 2025. Agreed learning goals with parents and reported progress regularly.</dd>
+      <dt>Languages</dt><dd>Vietnamese (native). English for technical reading and project documentation; preparing for the TOEIC.</dd>
+    </dl>
+  </section>
+
+  <hr class="rule">
+
+  <section class="text">
+    <h2>Contact</h2>
+    <p style="margin-top:12px">I am looking for a Business Analyst internship in Ho Chi Minh City. The fastest way to reach me is a message on <a href="https://www.linkedin.com/in/huynh-nguyen-ngoc-nhu-71660b377/" target="_blank" rel="noopener">LinkedIn</a> or an email to ngocnhu010904@gmail.com.</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var btn=document.getElementById("copy"), status=document.getElementById("status"), email=document.getElementById("email");
+  btn.addEventListener("click",function(){
+    function fallback(){ try{var r=document.createRange();r.selectNodeContents(email);var s=window.getSelection();s.removeAllRanges();s.addRange(r);status.textContent="Email selected";}catch(e){} }
+    try{ navigator.clipboard.writeText(email.textContent).then(function(){status.textContent="Copied";setTimeout(function(){status.textContent="";},2000);},fallback); }catch(e){ fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
